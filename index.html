@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP LOGO ANIM</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+<body>
+
+	<section>
+		<h2>Scroll to Begin</h2>
+	</section>
+
+	<div class="box">
+		<h2 class="text1">LOREM IPSUM DUMMY TEXTES</h2>
+		<h2 class="text2">This is my first code</h2>
+		<h2 class="text3">How it is</h2>
+		<img src="img/logo.png" class="logo" alt="">
+	</div>
+
+	<div class="box2">
+		<h2 class="text4">Stay Tuned</h2>
+		<h2 class="text5">For more videos</h2>
+		<h2 class="text6">How it is ?</h2>
+	</div>
+
+<script src="js/SmoothScrollMouseWheel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+<script>
+	// firstBox
+	let firstBox = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".box",
+			start: "center center",
+			markers: true,
+			scrub: true,
+			pin: true,
+		},
+	})
+	firstBox.from(".text1", {x: innerWidth * 1, duration: 2})
+	.from(".text2", {x: innerWidth * -1, duration: 2})
+	.from(".text3", {x: innerWidth * -1, duration: 2})
+	.from(".logo", {rotate: 360, y: innerHeight * 1 ,duration: 2})
+
+	// secBox
+	let secBox = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".box2",
+			start: "center center",
+			markers: true,
+			scrub: true,
+			pin: true,
+		}
+	})
+	secBox.from(".box2", {opacity :0})
+	.from(".text4",{y: innerHeight * 1})
+	.from(".text5",{y: innerHeight * 1})
+	.from(".text6",{y: innerHeight * 1})
+</script>
+</body>
+</html>
